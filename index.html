@@ -60,20 +60,42 @@
             <button>=</button>
         </div>
 
-        <p>Результат: <span id="result"></span></p>
+        <p>Результат: <span id="RESULT"></span></p>
     </form>
     
     <script type="text/javascript">
         let output = document.forms[0].output,
-            btns = document.querySelectorAll('.Calc__btns > button')
+            btns = document.querySelectorAll('.Calc__btns > button'),
+            symbolsMath = ['-', '+', '=', '/', '*', '.']
 
         function calcResult () {
-            console.log(output.value)
+            let result = output.value
+
+            if(!symbolsMath.includes(result[result.length-1])) {
+                output.value = ''
+                
+                RESULT.innerText = eval(result)
+            } else {
+                alert('Последний символ не должен входить в математическую операцию')
+            }
         }
 
         btns.forEach(function (btn, i) {
             btn.onclick = function () {
-                console.log(this)
+                let btnValue = this.innerText,
+                    outputVal = output.value
+
+                if(btnValue !== '=') {
+                    if(symbolsMath.includes(outputVal[outputVal.length-1]) && outputVal.length > 0 && symbolsMath.includes(btnValue)) {
+                        return false;
+                    } 
+
+                    output.value = output.value + btnValue
+                } else {
+                    calcResult()
+                }
+
+                return false;
             }
         })
     </script>
