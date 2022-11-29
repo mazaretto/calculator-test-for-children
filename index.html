@@ -5,9 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор на JavaScript</title>
+
+    <style type="text/css">
+        .Calc {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .Calc__btns {
+            width: 100%;
+            margin: 10px 0px;
+        }
+
+        .Calc__btns button:hover {
+            background: #e9e9e9;
+        }
+
+        .Calc__btns button {
+            width: 50px;
+            outline: none;
+            height: 50px;
+            border: none;
+        }
+    </style>
 </head>
 <body>
+
+    <!--
+        создать простой калькулятор на Java Script  (операции сложения, умножения, вычитания, деления, смены знака) для операций над действительными числами. 
+        Весь код должен быть выложен на GitHub. По истории коммитов должно быть понятно, как пошагово "собрать" калькулятор. 
+        Прислать ссылку на результат работы в WhatsApp. 
+    -->
+
+    <form class="Calc" action="#">
+        <h3>Калькулятор</h3>
+
+        <input type="text" name="output" placeholder="Введите ваши значения">
+        
+        <div class="Calc__btns">
+            <button>0</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+            <button>+</button>
+            <button>-</button>
+            <button>/</button>
+            <button>=</button>
+        </div>
+
+        <p>Результат: <span id="result"></span></p>
+    </form>
     
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        
+    </script>
 </body>
 </html>
