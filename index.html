@@ -64,27 +64,33 @@
     </form>
     
     <script type="text/javascript">
+        // Обьявление глобальных переменных
         let output = document.forms[0].output,
             btns = document.querySelectorAll('.Calc__btns > button'),
             symbolsMath = ['-', '+', '=', '/', '*', '.']
 
+        // Функция подсчета результата
         function calcResult () {
             let result = output.value
 
             if(!symbolsMath.includes(result[result.length-1])) {
                 output.value = ''
                 
+                // Функция авто-подсчета результата
                 RESULT.innerText = eval(result)
             } else {
                 alert('Последний символ не должен входить в математическую операцию')
             }
         }
 
+        // Проходимся по массиву кнопок
         btns.forEach(function (btn, i) {
+            // Добавляем событие клика на кнопку
             btn.onclick = function () {
                 let btnValue = this.innerText,
                     outputVal = output.value
 
+                // Проверяем, что кнопка означает конкретное значение, а не подсчет результата
                 if(btnValue !== '=') {
                     if(symbolsMath.includes(outputVal[outputVal.length-1]) && outputVal.length > 0 && symbolsMath.includes(btnValue)) {
                         return false;
@@ -92,6 +98,7 @@
 
                     output.value = output.value + btnValue
                 } else {
+                    // Если значение кнопки "=" - то считаем результат
                     calcResult()
                 }
 
